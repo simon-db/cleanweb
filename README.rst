@@ -60,8 +60,10 @@ Examples show basic usage of cleanweb api, for details check sources and `docs`_
 
 .. _docs: http://api.yandex.ru/cleanweb/doc/dg/concepts/resources.xml
 
+
 Добавлена возможность указывать тип каптчи
 -----
+Теперь при получении каптчи можно указать вид изображения каптчи ::
 
     >> client.get_captcha(captcha_type='std')
     #std — цифры, русскоязычный логотип;
