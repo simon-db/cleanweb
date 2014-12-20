@@ -47,9 +47,9 @@ class Cleanweb(object):
             'links': [(link.attrib['href'], yesnobool(link.attrib['spam-flag'])) for link in root.findall('./links/link')]
         }
 
-    def get_captcha(self, id=None):
+    def get_captcha(self, id=None, type_captcha='std'):
         """ http://api.yandex.ru/cleanweb/doc/dg/concepts/get-captcha.xml"""
-        payload = {'id': id}
+        payload = {'id': id, 'type': type_captcha}
         r = self.request('get', 'http://cleanweb-api.yandex.ru/1.0/get-captcha', params=payload)
         return dict((item.tag, item.text) for item in ET.fromstring(r.content))
 
